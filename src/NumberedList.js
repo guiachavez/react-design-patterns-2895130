@@ -1,4 +1,4 @@
-export const RegularList = ({
+export const NumberedList = ({
 	items,
 	resourceName,
 	itemComponent: ItemComponent,
@@ -10,7 +10,11 @@ export const RegularList = ({
 		))}
 
 		{items.map((item, i) => (
-			<ItemComponent key={i} {...{[resourceName]: item}} />
+            <>
+                <h3>{i + 1}</h3>
+                <ItemComponent key={i} {...{[resourceName]: item}} />
+            </>
+			
 			//<ItemComponent key={i} person={item} />
 		))}
 		</>
