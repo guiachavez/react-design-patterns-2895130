@@ -1,6 +1,25 @@
+import { useState } from "react";
+import { UncontrolledForm } from "./UncontrolledForm";
+import { ControlledForm } from "./ControlledForm";
+import { UncontrolledModal } from "./UncontrolledModal";
+import { ControlledModal } from "./ControlledModal";
+
 function App() {
+	const [shouldShowModal, setshouldShowModal] = useState(false)
+
 	return (
-		<h1>Your code goes here</h1>
+		<>
+			<ControlledModal 
+				shouldShow={shouldShowModal}
+				onRequestClose={() => setshouldShowModal(false)}
+			>
+				<h1>Hello</h1>
+			</ControlledModal>
+
+			<button onClick={() => setshouldShowModal(!shouldShowModal)}>
+				{shouldShowModal ? 'Hide Modal' : 'Show Modal'}
+			</button>
+		</>
 	);
 }
 
